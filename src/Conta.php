@@ -14,5 +14,14 @@ class Conta
         else {
             $this->saldo -= $valorASacar;
         }
+    } 
+
+    public function depositar(float $ValorADepositar):void
+    {
+        if ($ValorADepositar > 0) {
+            $this->saldo += $ValorADepositar;
+        } else {
+            echo "O Valor precisa ser positivo";
+        }
     }
 }
