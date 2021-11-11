@@ -5,6 +5,7 @@ class Conta
     private string $cpfTitular;
     private string $nomeTitular;
     private float $saldo;
+    private static int $numeroDeContas=0;
 
     public function __construct(string $cpfTitular, string $nomeTitular)
     {
@@ -12,6 +13,8 @@ class Conta
         $this->cpfTitular = $cpfTitular;
         $this->nomeTitular = $nomeTitular;
         $this->saldo = 0;
+
+        self::$numeroDeContas++;
     
     }
 
@@ -64,11 +67,17 @@ class Conta
         return $this->nomeTitular;
     }
 
-    private function validaNomeTitular(string $nomeTitular) {
-        if(strlen($nomeTitular <= 5)){
+    private function validaNomeTitular(string $nomeTitular) 
+    {
+        if(strlen($nomeTitular) <= 3){
             echo "O nome precisa ter pelo menos 5 caracteres";
             exit();
         }
+    }
+
+    public static function recuperaNumeroDeContas():int 
+    {
+        return self::$numeroDeContas;
     }
 
 }

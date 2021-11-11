@@ -15,3 +15,5 @@ $segundaConta = new Conta('987.654.321-10', 'Thales Leão');
 echo $segundaConta->recuperarCpfTitular() . PHP_EOL;
 echo $segundaConta->recuperarNomeTitular() . PHP_EOL;
 echo $segundaConta->recuperarSaldo() . PHP_EOL;
+
+echo Conta::recuperaNumeroDeContas();
