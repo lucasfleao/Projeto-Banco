@@ -4,7 +4,15 @@ class Conta
 {
     private string $cpfTitular;
     private string $nomeTitular;
-    private float $saldo = 0;
+    private float $saldo;
+
+    public function __construct(string $cpfTitular, string $nomeTitular)
+    {
+        $this->cpfTitular = $cpfTitular;
+        $this->nomeTitular = $nomeTitular;
+        $this->saldo = 0;
+    
+    }
 
     public function sacar(float $valorASacar) :void
     {
@@ -43,16 +51,6 @@ class Conta
     public function recuperarSaldo(): float
     {
         return $this->saldo;
-    }
-
-    public function defineCpfTitular(string $cpf)
-    {
-        $this->cpfTitular = $cpf; //Quem chamar este metodo '$this->cpf' irá receber o valor passado na função $cpf
-    }
-
-    public function defineNomeTitular(string $nome)
-    {
-        $this->nomeTitular = $nome;
     }
 
     public function recuperarCpfTitular(): string
